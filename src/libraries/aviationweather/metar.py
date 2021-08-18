@@ -1,5 +1,5 @@
 import datetime
-from typing import List, TypedDict, Any
+from typing import Any, List, TypedDict
 
 from lxml import objectify
 

@@ -8,6 +8,7 @@ python-daemon = "*"
 click = "*"
 requests = "*"
 lxml = "*"
+rpi-ws281x = "*"
 
 [dev-packages]
 isort = "*"
