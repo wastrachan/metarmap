@@ -1,6 +1,6 @@
 import click
 
-from configuration import setup_configuration
+from metarmap.configuration import setup_configuration
 
 setup_configuration()
 
@@ -10,8 +10,8 @@ def cli():
     pass
 
 
-from commands.lights import extinguish, illuminate, pulse_pixel  # NOQA
-from commands.utils import print_metar  # NOQA
+from metarmap.commands.lights import extinguish, illuminate, pulse_pixel  # NOQA
+from metarmap.commands.utils import print_metar  # NOQA
 
 cli.add_command(print_metar)
 cli.add_command(pulse_pixel)

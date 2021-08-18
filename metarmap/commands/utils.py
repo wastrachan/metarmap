@@ -1,6 +1,6 @@
 import click
 
-from libraries.aviationweather import metar
+from metarmap.libraries.aviationweather import metar
 
 
 @click.command(no_args_is_help=True)

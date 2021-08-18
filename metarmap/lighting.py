@@ -1,6 +1,6 @@
 from rpi_ws281x import Color, PixelStrip
 
-from configuration import config, debug
+from metarmap.configuration import config, debug
 
 COLOR_OFF = Color(0, 0, 0)
 COLOR_WHITE = Color(255, 255, 255)
@@ -15,7 +15,6 @@ FLIGHT_CATEGORY_COLORS = {
     'IFR': COLOR_RED,
     'LIFR': COLOR_PINK,
 }
-
 
 # Set Up LED Strip
 if not debug('LED strip setup'):

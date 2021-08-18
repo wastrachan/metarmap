@@ -2,9 +2,9 @@ import time
 
 import click
 
-from configuration import config, debug, get_airport_map
-from libraries.aviationweather import metar
-from lighting import FLIGHT_CATEGORY_COLORS, extinguish_pixel, illuminate_pixel
+from metarmap.configuration import config, debug, get_airport_map
+from metarmap.libraries.aviationweather import metar
+from metarmap.lighting import FLIGHT_CATEGORY_COLORS, extinguish_pixel, illuminate_pixel
 
 
 @click.command(no_args_is_help=True)
