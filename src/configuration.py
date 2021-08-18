@@ -22,6 +22,12 @@ def setup_configuration():
     rewrite_config = False
 
     # Ensure top-level sections exist
+    if 'MAIN' not in config.sections():
+        rewrite_config = True
+        config['MAIN'] = {
+            'DEBUG': 'off'
+        }
+
     if 'LED' not in config.sections():
         rewrite_config = True
         config['LED'] = {}
@@ -72,7 +78,7 @@ def debug(message: str = None):
     Returns:
         True if debug mode is enabled
     """
-    if debug_mode := config['LED'].get('debug') and message:
+    if debug_mode := config['MAIN'].getboolean('debug') and message:
         click.secho('DEBUG: ' + message, fg='yellow')
     return debug_mode
 

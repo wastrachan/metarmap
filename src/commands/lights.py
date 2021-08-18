@@ -20,7 +20,8 @@ def pulse_pixel(pixel: int):
 @click.command()
 def illuminate():
     """ Update current METAR observation for all airports
-    and illuminate all LED pixels.
+
+    and illuminate all corresponding LED pixels.
     """
     airport_map = get_airport_map()
     airports = [v for v in airport_map.values()]

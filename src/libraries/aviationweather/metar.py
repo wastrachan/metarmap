@@ -71,7 +71,9 @@ def retrieve(stations: List, hours_before: int = 2, most_recent: bool = True) ->
             station_dict = {
                 'raw_text':         str(safe_child(station, 'raw_text', '')),
                 'station_id':       str(safe_child(station, 'station_id', '')),
-                'observation_time': datetime.datetime.fromisoformat(str(safe_child(station, 'observation_time', '00000000')).replace('Z', '+00:00')),
+                'observation_time': datetime.datetime.fromisoformat(
+                    str(safe_child(station, 'observation_time', '00000000')).replace('Z', '+00:00')
+                ),
                 'latitude':         float(safe_child(station, 'latitude', None)),
                 'longitude':        float(safe_child(station, 'longitude', None)),
                 'temp':             float(safe_child(station, 'temp_c', None)),
