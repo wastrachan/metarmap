@@ -1,6 +1,8 @@
 import configparser
 import os
 
+import click
+
 HOME_DIR = os.path.expanduser('~')
 CONFIG_DIR = os.path.join(HOME_DIR, '.config/metarmap')
 CONFIG_FILE = os.path.join(CONFIG_DIR, 'config')
@@ -58,3 +60,34 @@ def setup_configuration():
     if rewrite_config:
         with open(CONFIG_FILE, 'w') as f:
             config.write(f)
+
+    # Debug mode notice
+    debug('Running in debug mode. Lighting functions will be simulated.')
+
+
+def debug(message: str = None):
+    """ Returns True if debug mode is enabled
+    If [message] is provided, print [message] if debug mode is enabled
+
+    Returns:
+        True if debug mode is enabled
+    """
+    if debug_mode := config['LED'].get('debug') and message:
+        click.secho('DEBUG: ' + message, fg='yellow')
+    return debug_mode
+
+
+def get_airport_map() -> dict:
+    """ Return a dictionary of all configured airports and their LED pixel
+
+    Returns:
+        {
+            [PIXEL_ID]: [AIRPORT_ID],
+            ...
+        }
+    """
+    airports = config['AIRPORTS']
+    airport_led_map = {}
+    for airport in airports:
+        airport_led_map[int(airport)] = airports[airport]
+    return airport_led_map
