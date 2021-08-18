@@ -22,7 +22,7 @@ if not debug('LED strip setup'):
                        config['LED'].getint('LED_PIN'),
                        config['LED'].getint('LED_FREQ_HZ'),
                        config['LED'].getint('LED_DMA'),
-                       config['LED'].get('LED_INVERT'),
+                       config['LED'].getboolean('LED_INVERT'),
                        config['LED'].getint('LED_BRIGHTNESS'),
                        config['LED'].getint('LED_CHANNEL'))
     strip.begin()
@@ -32,9 +32,11 @@ def illuminate_pixel(pixel: int, color: Color = COLOR_WHITE):
     """ Illuminate a single LED pixel """
     if not debug(f'LED {pixel} on, color {color}'):
         strip.setPixelColor(pixel, color)
+        strip.show()
 
 
 def extinguish_pixel(pixel):
     """ Turn a single LED pixel off """
     if not debug(f'LED {pixel} off'):
         strip.setPixelColor(pixel, COLOR_OFF)
+        strip.show()

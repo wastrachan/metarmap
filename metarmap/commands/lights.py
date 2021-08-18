@@ -32,7 +32,8 @@ def illuminate():
         station = [obs for obs in observations if obs.get('station_id') == station_name][0]
         flight_category = station.get('flight_category', 'VFR')
         debug(f'Pixel {pixel} is station {station_name} with current flight category {flight_category}')
-        if color := FLIGHT_CATEGORY_COLORS.get(flight_category.upper()):
+        color = FLIGHT_CATEGORY_COLORS.get(flight_category.upper())
+        if color:
             illuminate_pixel(pixel, color)
         else:
             extinguish_pixel(pixel)

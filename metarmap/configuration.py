@@ -43,7 +43,7 @@ def setup_configuration():
     if not led.get('LED_COUNT'):
         rewrite_config = True
         led['LED_COUNT'] = '50'
-    if not led.get('LED_COUNT'):
+    if not led.get('LED_PIN'):
         rewrite_config = True
         led['LED_PIN'] = '18'
     if not led.get('LED_FREQ_HZ'):
@@ -78,7 +78,8 @@ def debug(message: str = None):
     Returns:
         True if debug mode is enabled
     """
-    if debug_mode := config['MAIN'].getboolean('debug') and message:
+    debug_mode = config['MAIN'].getboolean('debug')
+    if debug_mode and message:
         click.secho('DEBUG: ' + message, fg='yellow')
     return debug_mode
 

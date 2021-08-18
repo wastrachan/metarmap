@@ -1,5 +1,11 @@
 import datetime
-from typing import Any, List, TypedDict
+try:
+    from typing import Any, List, TypedDict
+except ImportError:
+    # TypedDict was not introduced until 3.8
+    # use typing_extensions to support python 3.7
+    from typing import Any, List
+    from typing_extensions import TypedDict
 
 from lxml import objectify
 

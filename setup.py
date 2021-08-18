@@ -29,13 +29,14 @@ setup(
         'Operating System :: POSIX :: Linux',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3 :: Only',
+        'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
         'Topic :: Home Automation',
         'Topic :: Utilities',
         'Topic :: System :: Hardware',
     ],
-    python_requires='>=3.8',
+    python_requires='>=3.7',
     entry_points={
         'console_scripts': [
             'metarmap=metarmap.main:cli',

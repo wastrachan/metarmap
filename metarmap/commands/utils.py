@@ -11,7 +11,8 @@ def print_metar(station: str):
     STATION should be a four-letter station identifier (e.g. KRYY)
     """
     station = station.upper()
-    if metar_result := metar.retrieve([station, ]):
+    metar_result = metar.retrieve([station, ])
+    if metar_result:
         metar_text = metar_result[0].get('raw_text')
         click.echo(f'Latest Surface Observation for {station}:\n\n{metar_text}')
     else:

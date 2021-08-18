@@ -9,10 +9,11 @@ click = "*"
 requests = "*"
 lxml = "*"
 rpi-ws281x = "*"
+typing-extensions = "*"
 
 [dev-packages]
 isort = "*"
 flake8 = "*"
 
 [requires]
-python_version = "3.9"
+python_version = "3.7"
