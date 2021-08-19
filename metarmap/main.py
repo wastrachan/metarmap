@@ -10,13 +10,13 @@ def cli():
     pass
 
 
-from metarmap.commands.lights import extinguish, illuminate, pulse_pixel  # NOQA
+from metarmap.commands.lights import clear, pulse, update  # NOQA
 from metarmap.commands.utils import print_metar  # NOQA
 
-cli.add_command(print_metar)
-cli.add_command(pulse_pixel)
-cli.add_command(illuminate)
-cli.add_command(extinguish)
+cli.add_command(print_metar, name='print')
+cli.add_command(pulse)
+cli.add_command(update)
+cli.add_command(clear)
 
 if __name__ == '__main__':
     cli()

@@ -2,12 +2,27 @@ from rpi_ws281x import Color, PixelStrip
 
 from metarmap.configuration import config, debug
 
-COLOR_OFF = Color(0, 0, 0)
-COLOR_WHITE = Color(255, 255, 255)
-COLOR_GREEN = Color(34, 197, 0)
-COLOR_BLUE = Color(31, 112, 219)
-COLOR_RED = Color(253, 0, 0)
-COLOR_PINK = Color(251, 63, 255)
+
+def get_color(red: str, green: str, blue: str) -> Color:
+    """ Return a Color object with red, green, and blue in the apropriate position """
+    color_order = [char for char in config['LED'].get('LED_RGB_ORDER', 'RGB')]
+    remap = []
+    for color in color_order:
+        if color.lower() == 'r':
+            remap.append(red)
+        if color.lower() == 'g':
+            remap.append(green)
+        if color.lower() == 'b':
+            remap.append(blue)
+    return Color(*remap)
+
+
+COLOR_OFF = get_color(0, 0, 0)
+COLOR_WHITE = get_color(255, 255, 255)
+COLOR_GREEN = get_color(34, 197, 0)
+COLOR_BLUE = get_color(31, 112, 219)
+COLOR_RED = get_color(253, 0, 0)
+COLOR_PINK = get_color(251, 63, 255)
 
 FLIGHT_CATEGORY_COLORS = {
     'VFR': COLOR_GREEN,
@@ -15,6 +30,7 @@ FLIGHT_CATEGORY_COLORS = {
     'IFR': COLOR_RED,
     'LIFR': COLOR_PINK,
 }
+
 
 # Set Up LED Strip
 if not debug('LED strip setup'):

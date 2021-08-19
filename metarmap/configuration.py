@@ -35,14 +35,14 @@ def setup_configuration():
     if 'AIRPORTS' not in config.sections():
         rewrite_config = True
         config['AIRPORTS'] = {
-            '1': 'KRYY'
+            '0': 'KATL'
         }
 
     # Ensure minimum config options in LED section
     led = config['LED']
     if not led.get('LED_COUNT'):
         rewrite_config = True
-        led['LED_COUNT'] = '50'
+        led['LED_COUNT'] = '10'
     if not led.get('LED_PIN'):
         rewrite_config = True
         led['LED_PIN'] = '18'
@@ -61,6 +61,9 @@ def setup_configuration():
     if not led.get('LED_CHANNEL'):
         rewrite_config = True
         led['LED_CHANNEL'] = '0'
+    if not led.get('LED_RGB_ORDER'):
+        rewrite_config = True
+        led['LED_RGB_ORDER'] = 'RGB'
 
     # Save configuration defaults
     if rewrite_config:
