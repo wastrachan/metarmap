@@ -10,7 +10,7 @@ For this specific build, I used:
 - [WS2811 Individually Addressable LED Pixels](https://www.amazon.com/gp/product/B01AG923GI)
 - [Printed Foam Poster (FedEx Office)](https://www.fedex.com/en-us/printing/posters/mounted.html)
     - Sectional images were downloaded [from the FAA](https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/vfr/) and cropped before uploading to FedEx.
-
+- [2.13" e-Paper Display](https://www.amazon.com/gp/product/B07Z1WYRQH/)
 
 ## Wiring
 The physical setup/wiring progress is not covered in depth by this README. More detail will be added as I document the build.
@@ -29,8 +29,48 @@ On the Pi Zero W in my project:
 ## Installation
 Your Raspberry Pi should be set up and connected to WiFi already. This README will not cover the fundamentals of Raspberry Pi OS.
 
+### Enable SPI:
 ```
-$ sudo apt install python3-pip libxslt-dev
+$ sudo raspi-config
+    > 5 Interface Options
+    > P4 SPI
+    > Yes
+$ sudo reboot
+```
+
+### Install Dependencies:
+```
+$ sudo apt install fonts-freefont-ttf \
+                   git \
+                   libatlas3-base \
+                   libfreetype6-dev \
+                   libjpeg-dev \
+                   liblcms1-dev \
+                   libopenjp2-7 \
+                   libopenjp2-7-dev \
+                   libtiff5 \
+                   libxslt-dev \
+                   python-serial \
+                   python-smbus \
+                   python3-pip \
+                   wiringpi \
+                   zlib1g-dev
+```
+
+### Install BCM2835 Libraries
+Required to e-Paper Display
+```
+wget http://www.airspayce.com/mikem/bcm2835/bcm2835-1.60.tar.gz
+tar -axf bcm2835-1.60.tar.gz
+cd bcm2835-1.60/
+sudo ./configure
+sudo make
+sudo make check
+sudo make install
+```
+
+### Install Package:
+```
 $ git clone https://github.com/wastrachan/metarmap.git
 $ cd metarmap
 $ sudo pip3 install .
@@ -91,17 +131,18 @@ An example configuration with four airports:
 ### Configuration Options
 Many of the configuration options can be left alone. Expect to change `led_count` and `led_pin`, as well as `AIRPORTS`.
 
-| Section | Option           | Default  | Description
-|---------|------------------|----------|------------
-| `MAIN`  | `debug`          | `off`    | Enable debug mode. When debug mode is on, additional output is generated and LED actions are simulated only.
-| `LED`   | `led_count`      | `10`     | Total number of LED's in your WS2811 LED strip
-| `LED`   | `led_freq_hz`    | `800000` | Pulse wavelength frequency for WS2811 LED's. The default (800KHz) should be appropriate in most cases.
-| `LED`   | `led_dma`        | `10`     | DMA channel for signal generation. The default should be appropriate in most cases.
-| `LED`   | `led_brightness` | `255`    | LED brightness, on a scale of 0 (off) to 255 (maximum).
-| `LED`   | `led_invert`     | `false`  | Invert the LED signal (when using NPN transistor level shift)
-| `LED`   | `led_channel`    | `0`      | LED output channel (0-2).
-| `LED`   | `led_pin`        | `18`     | Raspberry Pi GPIO Pin for LED control.
-| `LED`   | `led_rgb_order`  | `rgb`    | Typically color is specific as RGB, but some strips expect GRB. Change this if RGB channels appear swapped.
+| Section  | Option           | Default  | Description
+|----------|------------------|----------|------------
+| `MAIN`   | `debug`          | `off`    | Enable debug mode. When debug mode is on, additional output is generated and LED actions are simulated only.
+| `LED`    | `led_count`      | `10`     | Total number of LED's in your WS2811 LED strip
+| `LED`    | `led_freq_hz`    | `800000` | Pulse wavelength frequency for WS2811 LED's. The default (800KHz) should be appropriate in most cases.
+| `LED`    | `led_dma`        | `10`     | DMA channel for signal generation. The default should be appropriate in most cases.
+| `LED`    | `led_brightness` | `255`    | LED brightness, on a scale of 0 (off) to 255 (maximum).
+| `LED`    | `led_invert`     | `false`  | Invert the LED signal (when using NPN transistor level shift)
+| `LED`    | `led_channel`    | `0`      | LED output channel (0-2).
+| `LED`    | `led_pin`        | `18`     | Raspberry Pi GPIO Pin for LED control.
+| `LED`    | `led_rgb_order`  | `rgb`    | Typically color is specific as RGB, but some strips expect GRB. Change this if RGB channels appear swapped.
+| `SCREEN` | `airport`        |          | If provided, this airport will be highlighted on the e-Paper display. Remove to disable.
 
 ## Usage
 ```

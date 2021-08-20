@@ -14,6 +14,8 @@ setup(
         'idna==3.2',
         'importlib-metadata==4.6.4',
         'lxml==4.6.3',
+        'numpy==1.21.2',
+        'pillow==8.3.1',
         'requests==2.26.0',
         'rpi-ws281x==4.3.0',
         'typing-extensions==3.10.0.0',

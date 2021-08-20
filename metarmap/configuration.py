@@ -32,6 +32,12 @@ def setup_configuration():
         rewrite_config = True
         config['LED'] = {}
 
+    if 'SCREEN' not in config.sections():
+        rewrite_config = True
+        config['SCREEN'] = {
+            'airport': 'KATL'
+        }
+
     if 'AIRPORTS' not in config.sections():
         rewrite_config = True
         config['AIRPORTS'] = {

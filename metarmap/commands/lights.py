@@ -9,7 +9,7 @@ from metarmap.lighting import FLIGHT_CATEGORY_COLORS, extinguish_pixel, illumina
 
 @click.command(no_args_is_help=True)
 @click.argument('pixel')
-def pulse(pixel: int):
+def pulse_light(pixel: int):
     """ Illuminate neopixel at address [PIXEL] for 3 seconds """
     pixel = int(pixel)
     illuminate_pixel(pixel)
@@ -18,7 +18,7 @@ def pulse(pixel: int):
 
 
 @click.command()
-def update():
+def update_lights():
     """ Update current METAR observation for all airports
 
     and illuminate all corresponding LED pixels.
@@ -41,7 +41,7 @@ def update():
 
 
 @click.command()
-def clear():
+def clear_lights():
     """ Turn all LED pixels off """
     for pixel in range(config['LED'].getint('LED_COUNT', 0)):
         extinguish_pixel(pixel)
