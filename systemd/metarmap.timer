@@ -1,0 +1,10 @@
+[Unit]
+Description=Update METAR Map Lights and Display
+Requires=metarmap.service
+
+[Timer]
+Unit=metarmap.service
+OnCalendar=*:0/10
+
+[Install]
+WantedBy=timers.target

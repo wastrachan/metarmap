@@ -60,13 +60,13 @@ $ sudo apt install fonts-freefont-ttf \
 ### Install BCM2835 Libraries
 Required for e-Paper Display
 ```
-wget http://www.airspayce.com/mikem/bcm2835/bcm2835-1.60.tar.gz
-tar -axf bcm2835-1.60.tar.gz
-cd bcm2835-1.60/
-sudo ./configure
-sudo make
-sudo make check
-sudo make install
+$ wget http://www.airspayce.com/mikem/bcm2835/bcm2835-1.60.tar.gz
+$ tar -axf bcm2835-1.60.tar.gz
+$ cd bcm2835-1.60/
+$ sudo ./configure
+$ sudo make
+$ sudo make check
+$ sudo make install
 ```
 
 ### Install Package:
@@ -77,6 +77,22 @@ $ sudo pip3 install .
 ```
 **Why Sudo**? Accessing the GPIO pins with the `rpi-ws281x` library requires access to `/dev/mem`, which can't be accessed by a non-root user. That means that running (and installing `metarmap`) must be done with sudo.
 
+### Run Automatically
+A unit file and timer have been provided to automate the update process. They should be manually copied into place if you wish to use them. If not, you'll need to rely on CRON or your own unit files to handle automation.
+```
+$ cd metarmap
+$ sudo cp systemd/metarmap.service /etc/systemd/system/
+$ sudo cp systemd/metarmap.timer /etc/systemd/system/
+$ sudo systemctl daemon-reload
+$ sudo systemctl enable metarmap.service
+$ sudo systemctl enable metarmap.timer
+$ sudo systemctl start metarmap.timer
+
+$ sudo systemctl list-timers
+NEXT                         LEFT          LAST                         PASSED       UNIT                         ACTIVATES
+Fri 2021-08-20 19:00:00 BST  1min 22s left n/a                          n/a          metarmap.timer               metarmap.service
+
+```
 
 ## Configuration
 The first time you run `metarmap` (`metarmap --help` would be a good place to start), a configuration file is created for you at `/root/.config/metarmap/config`.

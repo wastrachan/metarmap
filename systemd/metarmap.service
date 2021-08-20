@@ -1,0 +1,10 @@
+[Unit]
+Description=Update METAR Map Lights and Display
+Wants=metarmap.timer
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/metarmap update
+
+[Install]
+WantedBy=multi-user.target
