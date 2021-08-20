@@ -72,7 +72,7 @@ def retrieve(stations: List, hours_before: int = 2, most_recent: bool = True) ->
             try:
                 return getattr(parent, child)
             except AttributeError:
-                return Any
+                return default
 
         for station in root.data.getchildren():
             station_dict = {
@@ -95,11 +95,13 @@ def retrieve(stations: List, hours_before: int = 2, most_recent: bool = True) ->
                 'metar_type':       str(safe_child(station, 'metar_type', '')),
             }
             sky_condition = []
-            for condition in station.sky_condition:
-                sky_condition.append({
-                    'sky_cover': condition.attrib.get('sky_cover', ''),
-                    'cloud_base': condition.attrib.get('cloud_base_ft_agl', None),
-                })
+            sky_condition_data = safe_child(station, 'sky_condition', None)
+            if sky_condition_data:
+                for condition in sky_condition_data:
+                    sky_condition.append({
+                        'sky_cover': condition.attrib.get('sky_cover', ''),
+                        'cloud_base': condition.attrib.get('cloud_base_ft_agl', None),
+                    })
             station_dict['sky_condition'] = sky_condition
             results.append(station_dict)
     return results
