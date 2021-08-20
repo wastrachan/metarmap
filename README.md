@@ -58,7 +58,7 @@ $ sudo apt install fonts-freefont-ttf \
 ```
 
 ### Install BCM2835 Libraries
-Required to e-Paper Display
+Required for e-Paper Display
 ```
 wget http://www.airspayce.com/mikem/bcm2835/bcm2835-1.60.tar.gz
 tar -axf bcm2835-1.60.tar.gz
@@ -99,6 +99,9 @@ led_rgb_order = rgb
 
 [AIRPORTS]
 0 = KATL
+
+[SCREEN]
+airport = KATL
 ```
 
 All of the available configuration option are documented below.
@@ -126,6 +129,14 @@ An example configuration with four airports:
 1 = KRYY
 2 = KPDK
 3 = KFTY
+```
+
+### E-Ink Display
+The e-ink display will present the METAR observation at one static airport. This is configured via the `airport` setting in the `SCREEN` section:
+
+```
+[SCREEN]
+airport = KATL
 ```
 
 ### Configuration Options

@@ -6,6 +6,7 @@ import click
 HOME_DIR = os.path.expanduser('~')
 CONFIG_DIR = os.path.join(HOME_DIR, '.config/metarmap')
 CONFIG_FILE = os.path.join(CONFIG_DIR, 'config')
+DISPLAY_LOCK_FILE = os.path.join(CONFIG_DIR, 'displayweather')
 
 config = configparser.ConfigParser()
 
@@ -107,3 +108,19 @@ def get_airport_map() -> dict:
     for airport in airports:
         airport_led_map[int(airport)] = airports[airport]
     return airport_led_map
+
+
+def get_display_lock_content() -> str:
+    """ Return the content of DISPLAY_LOCK_FILE, or None """
+    if not os.path.isfile(DISPLAY_LOCK_FILE):
+        return None
+    with open(DISPLAY_LOCK_FILE, 'r') as f:
+        return f.read()
+
+
+def set_display_lock_content(msg: str):
+    """ Write [msg] to  DISPLAY_LOCK_FILE """
+    with open(DISPLAY_LOCK_FILE, 'w') as f:
+        f.truncate(0)
+        f.seek(0)
+        f.write(msg)
