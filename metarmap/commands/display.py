@@ -1,3 +1,4 @@
+import datetime
 import os
 import textwrap
 
@@ -39,6 +40,11 @@ def update_display():
         debug(f'Weather not found for station {station}')
         return
 
+    # Convert observation time to local (system) timezone
+    timezone = datetime.datetime.now(datetime.timezone.utc).astimezone().tzinfo
+    timezone_name = datetime.datetime.now(datetime.timezone.utc).astimezone().tzname()
+    observation_time_local = observation.get('observation_time').astimezone(timezone)
+
     # Test observation_time, do not update display if weather observation is not new
     new_lock = f'{station}{observation.get("observation_time")}'
     old_lock = get_display_lock_content()
@@ -61,7 +67,7 @@ def update_display():
     debug('Draw title on e-paper display')
     draw.rectangle(((0, 0), (display_width / 2, 22)), fill=0)
     draw.text((2, 0), f'METAR {station}', font=FONT_TITLE_BOLD, fill=255)
-    msg = observation.get('observation_time').strftime('%m/%d/%y %H:%MZ')
+    msg = observation_time_local.strftime('%m/%d/%y %H:%M') + timezone_name[0]
     w, h = FONT_TITLE.getsize(msg)
     draw.text(((display_width - w - 2), 0), msg, font=FONT_TITLE)
     draw.line(((0, 22), (display_width, 22)), fill=0, width=1)
