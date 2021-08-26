@@ -32,10 +32,10 @@ def update_lights():
         try:
             station = [obs for obs in observations if obs.get('station_id') == station_name][0]
         except IndexError:
-            click.echo(f'No observation for station {station_name}!')
+            click.echo(f'WARN: No observation for station {station_name}!')
             station = {}
         flight_category = station.get('flight_category', 'UNK')
-        color = FLIGHT_CATEGORY_COLORS.get(flight_category.upper(), 'UNK')
+        color = FLIGHT_CATEGORY_COLORS.get(flight_category.upper(), FLIGHT_CATEGORY_COLORS['UNK'])
         debug(f'Pixel {pixel} is station {station_name} with current flight category {flight_category}')
         illuminate_pixel(pixel, color)
 
