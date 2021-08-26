@@ -23,12 +23,14 @@ COLOR_GREEN = get_color(34, 197, 0)
 COLOR_BLUE = get_color(31, 112, 219)
 COLOR_RED = get_color(253, 0, 0)
 COLOR_PINK = get_color(251, 63, 255)
+COLOR_YELLOW = get_color(255, 136, 0)
 
 FLIGHT_CATEGORY_COLORS = {
     'VFR': COLOR_GREEN,
     'MVFR': COLOR_BLUE,
     'IFR': COLOR_RED,
     'LIFR': COLOR_PINK,
+    'UNK': COLOR_YELLOW,
 }
 
 

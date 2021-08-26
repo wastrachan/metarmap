@@ -29,15 +29,15 @@ def update_lights():
 
     for pixel in airport_map.keys():
         station_name = airport_map[pixel]
-        station = [obs for obs in observations if obs.get('station_id') == station_name][0]
-        flight_category = station.get('flight_category', 'VFR')
+        try:
+            station = [obs for obs in observations if obs.get('station_id') == station_name][0]
+        except IndexError:
+            click.echo(f'No observation for station {station_name}!')
+            station = {}
+        flight_category = station.get('flight_category', 'UNK')
+        color = FLIGHT_CATEGORY_COLORS.get(flight_category.upper(), 'UNK')
         debug(f'Pixel {pixel} is station {station_name} with current flight category {flight_category}')
-        color = FLIGHT_CATEGORY_COLORS.get(flight_category.upper())
-        if color:
-            illuminate_pixel(pixel, color)
-        else:
-            extinguish_pixel(pixel)
-            debug(f'No color for flight category {flight_category} for station {station_name}')
+        illuminate_pixel(pixel, color)
 
 
 @click.command()
