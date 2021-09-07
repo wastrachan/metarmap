@@ -19,11 +19,26 @@ Connect the LEDs to a GPIO pin, 5V source, and ground pin. Do the math on your L
 
 On the Pi Zero W in my project:
 
-| GPIO Pin | Function |
-|----------|----------|
-| 2        | + 5 VDC  |
-| 6        | Ground   |
-| 18       | DIN      |
+### LEDs
+
+| Pin   | Function |
+|-------|----------|
+| 2     | + 5 VDC  |
+| 6     | Ground   |
+| 18    | DIN      |
+
+### ePaper Display
+
+| Pin   | Function |
+|-------|----------|
+| 1     | VCC      |
+| 9     | GND      |
+| 19    | DIN      |
+| 23    | CLK      |
+| 24    | CS       |
+| 22    | DC       |
+| 11    | RST      |
+| 18    | BUSY     |
 
 
 ## Installation
