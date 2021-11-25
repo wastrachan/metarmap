@@ -26,7 +26,10 @@ def setup_configuration():
     if 'MAIN' not in config.sections():
         rewrite_config = True
         config['MAIN'] = {
-            'DEBUG': 'off'
+            'DEBUG': 'off',
+            'DIM_TIME_START': '',
+            'DIM_TIME_END': '',
+            'DIM_TIME_LED_BRIGHTNESS': '20',
         }
 
     if 'LED' not in config.sections():
@@ -36,13 +39,13 @@ def setup_configuration():
     if 'SCREEN' not in config.sections():
         rewrite_config = True
         config['SCREEN'] = {
-            'airport': 'KATL'
+            'airport': 'KATL',
         }
 
     if 'AIRPORTS' not in config.sections():
         rewrite_config = True
         config['AIRPORTS'] = {
-            '0': 'KATL'
+            '0': 'KATL',
         }
 
     # Ensure minimum config options in LED section

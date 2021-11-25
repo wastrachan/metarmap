@@ -175,16 +175,19 @@ Many of the configuration options can be left alone. Expect to change `led_count
 
 | Section  | Option           | Default  | Description
 |----------|------------------|----------|------------
-| `MAIN`   | `debug`          | `off`    | Enable debug mode. When debug mode is on, additional output is generated and LED actions are simulated only.
-| `LED`    | `led_count`      | `10`     | Total number of LED's in your WS2811 LED strip
-| `LED`    | `led_freq_hz`    | `800000` | Pulse wavelength frequency for WS2811 LED's. The default (800KHz) should be appropriate in most cases.
-| `LED`    | `led_dma`        | `10`     | DMA channel for signal generation. The default should be appropriate in most cases.
-| `LED`    | `led_brightness` | `255`    | LED brightness, on a scale of 0 (off) to 255 (maximum).
-| `LED`    | `led_invert`     | `false`  | Invert the LED signal (when using NPN transistor level shift)
-| `LED`    | `led_channel`    | `0`      | LED output channel (0-2).
-| `LED`    | `led_pin`        | `18`     | Raspberry Pi GPIO Pin for LED control.
-| `LED`    | `led_rgb_order`  | `rgb`    | Typically color is specific as RGB, but some strips expect GRB. Change this if RGB channels appear swapped.
-| `SCREEN` | `airport`        |          | If provided, this airport will be highlighted on the e-Paper display. Remove to disable.
+| `MAIN`   | `debug`                   | `off`    | Enable debug mode. When debug mode is on, additional output is generated and LED actions are simulated only.
+| `MAIN`   | `dim_time_start`          |          | If provided, the LED brightness will be set to `dim_time_led_brightness` during the hours between this value and `dim_time_end`. `dim_time_start`, `dim_time_end`, and `dim_time_led_brightness` all must be set for this feature to take effect. The time provided should be expressed in hours local time (e.x. `23:00`).
+| `MAIN`   | `dim_time_end`            |          | If provided, the LED brightness will be set to `dim_time_led_brightness` during the hours between `dim_time_start` and this value. `dim_time_start`, `dim_time_end`, and `dim_time_led_brightness` all must be set for this feature to take effect. The time provided should be expressed in hours local time (e.x. `07:00`).
+| `MAIN`   | `dim_time_led_brightness` | `20`     | If `dim_time_start` and `dim_time_end` are set, the LED brightness will be set to this value between `dim_time_start` and `dim_time_end`. `dim_time_start`, `dim_time_end`, and `dim_time_led_brightness` all must be set for this feature to take effect. If this is set to `0`, the lights will be disabled during the dim time period.
+| `LED`    | `led_count`               | `10`     | Total number of LED's in your WS2811 LED strip
+| `LED`    | `led_freq_hz`             | `800000` | Pulse wavelength frequency for WS2811 LED's. The default (800KHz) should be appropriate in most cases.
+| `LED`    | `led_dma`                 | `10`     | DMA channel for signal generation. The default should be appropriate in most cases.
+| `LED`    | `led_brightness`          | `255`    | LED brightness, on a scale of 0 (off) to 255 (maximum).
+| `LED`    | `led_invert`              | `false`  | Invert the LED signal (when using NPN transistor level shift)
+| `LED`    | `led_channel`             | `0`      | LED output channel (0-2).
+| `LED`    | `led_pin`                 | `18`     | Raspberry Pi GPIO Pin for LED control.
+| `LED`    | `led_rgb_order`           | `rgb`    | Typically color is specific as RGB, but some strips expect GRB. Change this if RGB channels appear swapped.
+| `SCREEN` | `airport`                 |          | If provided, this airport will be highlighted on the e-Paper display. Remove to disable.
 
 ## Usage
 ```
