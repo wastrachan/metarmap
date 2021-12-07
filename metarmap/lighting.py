@@ -53,11 +53,13 @@ def get_brightness() -> int:
         debug('DIM_TIME_LED_BRIGHTNESS, DIM_TIME_START, and DIM_TIME_END are not all configured. Using LED_BRIGHTNESS')
         return base_brightness
 
-    # Assume that the end time is tomorrow if the end time is < start time
-    if dimmed_end_time < dimmed_start_time:
-        dimmed_end_time = dimmed_end_time + datetime.timedelta(hours=24)
+    # Determine if range spans midnight, and compare now with start and end time
+    if dimmed_start_time <= dimmed_end_time:
+        dim_leds = dimmed_start_time <= now and (dimmed_end_time > now)
+    else:
+        dim_leds = dimmed_start_time <= now or (dimmed_end_time > now)
 
-    if dimmed_start_time <= now <= dimmed_end_time:
+    if dim_leds:
         debug(f'Current time ({now.isoformat()}) '
               f'is between start ({dimmed_start_time.isoformat()}) '
               f'and end ({dimmed_end_time.isoformat()}). Using dimmed brightness.')
