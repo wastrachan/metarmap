@@ -13,6 +13,7 @@ pillow = "*"
 requests = "*"
 rpi-ws281x = "*"
 spidev = "*"
+"rpi.gpio" = "*"
 
 [dev-packages]
 isort = "*"
