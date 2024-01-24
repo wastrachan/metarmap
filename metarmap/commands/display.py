@@ -89,7 +89,7 @@ def update_display():
     debug("Write raw METAR text to e-paper display")
     line_pos = 40
     msg = observation.get("raw_text")
-    _, _, w, h = FONT.getsize(msg)
+    _, _, w, h = FONT.getbbox(msg)
     for line in textwrap.wrap(msg, width=34):
         draw.text((0, line_pos), line, font=FONT)
         line_pos += h + 3
