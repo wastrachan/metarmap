@@ -17,7 +17,7 @@ setup(
         "numpy==1.21.4",
         "Pillow==8.4.0",
         "requests==2.26.0",
-        "rpi-ws281x==4.3.1",
+        "rpi-ws281x==4.3.4",
         "typing_extensions==4.0.0",
         "urllib3==1.26.7",
         "zipp==3.5.0",
