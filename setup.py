@@ -9,7 +9,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         "certifi==2021.10.8",
-        "charset-normalizer==2.0.8",
+        "charset-normalizer==2.1.1",
         "click==8.0.3",
         "idna==3.3",
         "importlib-metadata==4.6.4",
