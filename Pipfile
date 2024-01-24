@@ -4,8 +4,10 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+"rpi.gpio" = "*"
 click = "*"
 gpiozero ="*"
+lgpio = "*"
 lxml = "*"
 metarmap = {editable = true, path = "."}
 numpy = "*"
@@ -13,11 +15,10 @@ pillow = "*"
 requests = "*"
 rpi-ws281x = "*"
 spidev = "*"
-"rpi.gpio" = "*"
 
 [dev-packages]
-isort = "*"
 flake8 = "*"
+isort = "*"
 
 [requires]
 python_version = "3.11"

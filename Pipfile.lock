@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "28b37bd4f0ee5af63f1d2ffdc55690bdc5ab99c1c82780ffe47daa156ebb1bc6"
+            "sha256": "d4a4a8151df6e9bf15d96d494bff0f7606a127917c5aff61a92e72ccd27da0f5"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -152,6 +152,14 @@
             "markers": "python_version >= '3.5'",
             "version": "==3.6"
         },
+        "lgpio": {
+            "hashes": [
+                "sha256:5f2d6a7324b96f867a44eceb03b14d314758b2dfe6e5882a46a3a9074048b8c2",
+                "sha256:93d16ddaa5b999b938d982822091f1c0fd61a27ea026c0d3ecf8ae053e8bf8d6"
+            ],
+            "index": "pypi",
+            "version": "==0.0.0.2"
+        },
         "lxml": {
             "hashes": [
                 "sha256:13521a321a25c641b9ea127ef478b580b5ec82aa2e9fc076c86169d161798b01",
@@ -236,10 +244,6 @@
             "index": "pypi",
             "markers": "python_version >= '3.6'",
             "version": "==5.1.0"
-        },
-        "metarmap": {
-            "editable": true,
-            "path": "."
         },
         "numpy": {
             "hashes": [

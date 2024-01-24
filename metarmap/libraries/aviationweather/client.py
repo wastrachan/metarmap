@@ -2,7 +2,7 @@ import requests
 
 
 class AviationWeatherClient:
-    BASE_URL = "https://www.aviationweather.gov/adds/dataserver_current/httpparam"
+    BASE_URL = "https://www.aviationweather.gov/api/data/dataserver"
 
     def __init__(self, *args, **kwargs):
         pass
