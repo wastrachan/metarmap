@@ -129,7 +129,7 @@ $ sudo apt install \
 ```shell
 $ git clone https://github.com/wastrachan/metarmap.git
 $ cd metarmap
-$ sudo -i pipx install .
+$ sudo pipx install .
 $ sudo -i pipx ensurepath
 ```
 

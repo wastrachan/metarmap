@@ -10,14 +10,14 @@ class MetarDict(TypedDict):
     raw_text: str
     station_id: str
     observation_time: datetime.datetime
-    latitude: float
-    longitude: float
-    temp: float
-    dewpoint: float
-    wind_direction: int
-    wind_speed: int
-    visibility: float
-    altimeter: float
+    latitude: str
+    longitude: str
+    temp: str
+    dewpoint: str
+    wind_direction: str
+    wind_speed: str
+    visibility: str
+    altimeter: str
     weather: str
     sky_condition: List[
         TypedDict(
@@ -79,14 +79,14 @@ def retrieve(
                         "Z", "+00:00"
                     )
                 ),
-                "latitude": float(safe_child(station, "latitude", 0.0)),
-                "longitude": float(safe_child(station, "longitude", 0.0)),
-                "temp": float(safe_child(station, "temp_c", 0.0)),
-                "dewpoint": float(safe_child(station, "dewpoint_c", 0.0)),
-                "wind_direction": int(safe_child(station, "wind_dir_degrees", 0)),
-                "wind_speed": int(safe_child(station, "wind_speed_kt", 0)),
-                "visibility": float(safe_child(station, "visibility_statute_mi", 0.0)),
-                "altimeter": float(safe_child(station, "altim_in_hg", 0.0)),
+                "latitude": str(safe_child(station, "latitude", "0.0")),
+                "longitude": str(safe_child(station, "longitude", "0.0")),
+                "temp": str(safe_child(station, "temp_c", "0.0")),
+                "dewpoint": str(safe_child(station, "dewpoint_c", "0.0")),
+                "wind_direction": str(safe_child(station, "wind_dir_degrees", 0)),
+                "wind_speed": str(safe_child(station, "wind_speed_kt", 0)),
+                "visibility": str(safe_child(station, "visibility_statute_mi", "0.0")),
+                "altimeter": str(safe_child(station, "altim_in_hg", "0.0")),
                 "weather": str(safe_child(station, "wx_string", "")),
                 "sky_condition": [],
                 "flight_category": str(safe_child(station, "flight_category", "")),
