@@ -19,7 +19,7 @@ setup(
         "requests==2.26.0",
         "rpi-ws281x==4.3.1",
         "typing_extensions==4.0.0",
-        "urllib3==1.26.7",
+        "urllib3==1.26.18",
         "zipp==3.5.0",
     ],
     classifiers=[
