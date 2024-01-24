@@ -8,7 +8,6 @@ click = "*"
 requests = "*"
 lxml = "*"
 rpi-ws281x = "*"
-typing-extensions = "*"
 pillow = "*"
 numpy = "*"
 metarmap = {editable = true, path = "."}
