@@ -10,7 +10,7 @@ setup(
     install_requires=[
         "certifi==2021.10.8",
         "charset-normalizer==2.0.8",
-        "click==8.0.3",
+        "click==8.1.7",
         "idna==3.3",
         "importlib-metadata==4.6.4",
         "lxml==4.6.4",
