@@ -11,6 +11,7 @@ setup(
         "certifi==2023.11.17",
         "charset-normalizer==3.3.2",
         "click==8.1.7",
+        "gpiozero==2.0",
         "idna==3.6",
         "lxml==5.1.0",
         "numpy==1.26.3",

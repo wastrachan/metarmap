@@ -5,12 +5,13 @@ name = "pypi"
 
 [packages]
 click = "*"
-requests = "*"
+gpiozero ="*"
 lxml = "*"
-rpi-ws281x = "*"
-pillow = "*"
-numpy = "*"
 metarmap = {editable = true, path = "."}
+numpy = "*"
+pillow = "*"
+requests = "*"
+rpi-ws281x = "*"
 
 [dev-packages]
 isort = "*"
