@@ -5,7 +5,12 @@ import textwrap
 import click
 from PIL import Image, ImageDraw, ImageFont
 
-from metarmap.configuration import config, debug, get_display_lock_content, set_display_lock_content
+from metarmap.configuration import (
+    config,
+    debug,
+    get_display_lock_content,
+    set_display_lock_content,
+)
 from metarmap.libraries.aviationweather import metar
 from metarmap.libraries.waveshare_epd import epd2in13_V2
 
@@ -76,7 +81,7 @@ def update_display():
     draw.rectangle(((0, 0), (display_width / 2, 22)), fill=0)
     draw.text((2, 0), f"METAR {station}", font=FONT_TITLE_BOLD, fill=255)
     msg = observation_time_local.strftime("%m/%d/%y %H:%M") + timezone_name[0]
-    w, h = FONT_TITLE.getsize(msg)
+    _, _, w, h = FONT_TITLE.getbbox(msg)
     draw.text(((display_width - w - 2), 0), msg, font=FONT_TITLE)
     draw.line(((0, 22), (display_width, 22)), fill=0, width=1)
 
@@ -84,7 +89,7 @@ def update_display():
     debug("Write raw METAR text to e-paper display")
     line_pos = 40
     msg = observation.get("raw_text")
-    w, h = FONT.getsize(msg)
+    _, _, w, h = FONT.getsize(msg)
     for line in textwrap.wrap(msg, width=34):
         draw.text((0, line_pos), line, font=FONT)
         line_pos += h + 3
