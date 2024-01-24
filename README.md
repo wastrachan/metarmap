@@ -134,15 +134,19 @@ $ sudo apt install \
     libxslt1-dev \
 
 
-                   fonts-freefont-ttf \
-                   libatlas3-base \
-                   libfreetype6-dev \
-                   libjpeg-dev \
-                   liblcms1-dev \
-                   libtiff5 \
-                   python-serial \
-                   python-smbus \
-                   wiringpi \
+
+
+
+
+                fonts-freefont-ttf \
+                libatlas3-base \
+                libfreetype6-dev \
+                libjpeg-dev \
+                liblcms1-dev \
+                libtiff5 \
+                python-serial \
+                python-smbus \
+                wiringpi \
 ```
 
 ### Install Package:

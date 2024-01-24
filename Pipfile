@@ -12,6 +12,7 @@ numpy = "*"
 pillow = "*"
 requests = "*"
 rpi-ws281x = "*"
+spidev = "*"
 
 [dev-packages]
 isort = "*"
