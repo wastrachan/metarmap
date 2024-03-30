@@ -14,7 +14,7 @@ setup(
         "colorzero==2.0",
         "gpiozero==2.0",
         "idna==3.6",
-        "lgpio==0.0.0.2",
+        "lgpio==0.2.2.0",
         "lxml==5.1.0",
         "numpy==1.26.3",
         "pillow==10.2.0",
