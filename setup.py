@@ -13,7 +13,7 @@ setup(
         "click==8.1.7",
         "colorzero==2.0",
         "gpiozero==2.0",
-        "idna==3.6",
+        "idna==3.7",
         "lgpio==0.0.0.2",
         "lxml==5.1.0",
         "numpy==1.26.3",
