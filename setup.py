@@ -15,7 +15,7 @@ setup(
         "gpiozero==2.0",
         "idna==3.6",
         "lgpio==0.0.0.2",
-        "lxml==5.1.0",
+        "lxml==5.2.2",
         "numpy==1.26.3",
         "pillow==10.2.0",
         "requests==2.31.0",
