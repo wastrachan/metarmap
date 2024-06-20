@@ -22,7 +22,7 @@ setup(
         "rpi_ws281x==5.0.0",
         "RPi.GPIO==0.7.1",
         "spidev==3.6",
-        "urllib3==2.1.0",
+        "urllib3==2.2.2",
     ],
     classifiers=[
         "Development Status :: 5 - Production/Stable",
