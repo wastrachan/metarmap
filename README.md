@@ -99,6 +99,31 @@ $ sudo chmod 0600 etc/NetworkManager/system-connections/WiFi.nmconnection
 # 5. Unmount the SD card. Install it in the Pi, and boot
 ```
 
+### Install Dependencies:
+
+```shell
+$ sudo apt install \
+    git \
+    python3-dev \
+    python3-setuptools \
+    pipx \
+    swig \
+    libopenjp2-7 \
+    libopenjp2-7-dev \
+    libxslt1-dev \
+    fonts-freefont-ttf
+```
+
+### Install LGPIO
+
+```shell
+$ wget http://abyz.me.uk/lg/lg.zip
+$ unzip lg.zip
+$ cd lg
+$ make
+$ sudo make install
+```
+
 ### Install BCM2835 Libraries
 
 ```shell
@@ -109,19 +134,6 @@ $ sudo ./configure
 $ sudo make
 $ sudo make check
 $ sudo make install
-```
-
-### Install Dependencies:
-
-```shell
-$ sudo apt install \
-    git \
-    python3-dev \
-    pipx \
-    libopenjp2-7 \
-    libopenjp2-7-dev \
-    libxslt1-dev \
-    fonts-freefont-ttf
 ```
 
 ### Install Package:

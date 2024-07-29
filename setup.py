@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="metarmap",
-    version="0.4.0",
+    version="0.4.1",
     author="Winston Astrachan",
     description="Metar Map",
     url="https://github.com/wastrachan/metarmap",
@@ -19,7 +19,7 @@ setup(
         "numpy==2.0.1",
         "pillow==10.4.0",
         "requests==2.32.3",
-        "RPi.GPIO==0.7.1",
+        "rpi-lgpio==0.6",
         "rpi_ws281x==5.0.0",
         "spidev==3.6",
         "urllib3==2.2.2",

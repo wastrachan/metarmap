@@ -4,17 +4,16 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-"rpi.gpio" = "*"
 click = "*"
 gpiozero ="*"
-lgpio = "*"
 lxml = "*"
-metarmap = {editable = true, path = "."}
 numpy = "*"
 pillow = "*"
 requests = "*"
 rpi-ws281x = "*"
 spidev = "*"
+rpi-lgpio = "*"
+metarmap = {editable = true, path = "."}
 
 [dev-packages]
 flake8 = "*"
