@@ -8,7 +8,7 @@ setup(
     url="https://github.com/wastrachan/metarmap",
     packages=find_packages(),
     install_requires=[
-        "certifi==2024.7.4",
+        "certifi==2024.12.14",
         "charset-normalizer==3.3.2",
         "click==8.1.7",
         "colorzero==2.0",
