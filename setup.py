@@ -21,7 +21,7 @@ setup(
         "requests==2.32.3",
         "rpi-lgpio==0.6",
         "rpi_ws281x==5.0.0",
-        "spidev==3.6",
+        "spidev==3.8",
         "urllib3==2.2.2",
     ],
     classifiers=[
