@@ -18,7 +18,7 @@ setup(
         "lxml==5.2.2",
         "numpy==2.0.1",
         "pillow==10.4.0",
-        "requests==2.32.3",
+        "requests==2.34.2",
         "rpi-lgpio==0.6",
         "rpi_ws281x==5.0.0",
         "spidev==3.6",
