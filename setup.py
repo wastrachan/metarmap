@@ -9,7 +9,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         "certifi==2024.7.4",
-        "charset-normalizer==3.3.2",
+        "charset-normalizer==3.4.9",
         "click==8.1.7",
         "colorzero==2.0",
         "gpiozero==2.0.1",
