@@ -10,7 +10,7 @@ setup(
     install_requires=[
         "certifi==2024.7.4",
         "charset-normalizer==3.3.2",
-        "click==8.1.7",
+        "click==8.5.0",
         "colorzero==2.0",
         "gpiozero==2.0.1",
         "idna==3.7",
